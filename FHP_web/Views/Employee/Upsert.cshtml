@@ -1,0 +1,55 @@
+﻿@model FHP_Res.Entity.Trainee
+<div id="traineeFormContainer">
+    <div id="form-header">
+        <h3>
+            <span class="line20px marginBottom7px"></span>
+            Enter the details
+            <span class="line20px marginBottom7px"></span>
+        </h3>
+    </div>
+    <form method="post">
+        <div>
+            <label asp-for="SerialNumber"></label> <br />
+            <input asp-for="SerialNumber" disabled/>
+        </div>
+        <div>
+           <label asp-for="Prefix"></label>
+           <input asp-for="Prefix"/>
+        </div>
+        <div>
+            <label asp-for="FirstName"></label> <br />
+            <input asp-for="FirstName" />
+        </div>
+        <div>
+            <label asp-for="MiddleName"></label> <br />
+            <input asp-for="MiddleName" />
+        </div>
+        <div>
+            <label asp-for="LastName"></label> <br />
+            <input asp-for="LastName" />
+        </div>
+        <div>
+            <label asp-for="Education"></label> <br />
+            <input asp-for="Education" />
+        </div>
+        <div>
+            <label asp-for="JoiningDate"></label> <br />
+            <input asp-for="JoiningDate" />
+        </div>
+        <div>
+            <label asp-for="DateOfBirth"></label> <br />
+            <input asp-for="DateOfBirth" />
+        </div>
+        <div>
+            <label asp-for="CurrentCompany"></label> <br />
+            <input asp-for="CurrentCompany" />
+        </div>
+        <div>
+            <label asp-for="CurrentAddress"></label> <br />
+            <textarea asp-for="CurrentAddress"></textarea>
+        </div>
+        <div>
+            <input type="submit"/>
+        </div>
+    </form>
+</div>

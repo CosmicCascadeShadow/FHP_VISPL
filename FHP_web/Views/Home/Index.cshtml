@@ -1,0 +1,154 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+@* ------- nav bar*@
+<header>
+    <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light box-shadow noVisibility">
+        <div class="container-fluid">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between" id="nav-bar">
+                <ul class="navbar-nav flex-grow-1">
+                    <li class="nav-item">
+                        <button class="nav-link activeBtn" id="newBtn" onClick="GetTraineeData()" href="">New</button>
+                    </li>
+                    <li class="nav-item">
+                        <button class="nav-link disableBtn" id="editBtn" onClick="GetTraineeData()" href="">Edit</button>
+                    </li>
+                    <li class="nav-item">
+                        <button class="nav-link disableBtn" id="deleteBtn" onclick="deleteSelected()" href="">Delete</button>
+                    </li>
+                    <li class="nav-item">
+                        <button class="nav-link activeBtn" href="" id="clearAllFilters">Clear Search</button>
+                    </li>
+                    <li class="nav-item">
+                        <button class="nav-link activeBtn" id="aboutUsBtn">
+                            <a asp-controller="About" asp-action="Index">
+                            About Us
+                            </a>
+                            </button>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <div id="userInfo">
+        <button id="signInBtn">
+            sign in 
+        </button>
+    </div>
+</header>
+
+<h1 id="mainScreenScreen">Welcome to FHP</h1>
+<h3>@TempData["success"]</h3>
+
+<div id="modalContainer" class="noDisplay">
+    <div id="registrationContainer"></div>
+</div>
+
+<table id="traineeDataTable" class="noDisplay">
+    <thead>
+        <tr>
+            <th style="width:30px;"></th>
+            <th>
+                Sr. no
+                <i class="bi bi-sort-alpha-up sortAscending"></i>
+                <i class="bi bi-sort-alpha-down-alt sortDescending"></i>
+            </th>
+            <th>
+                Prefix
+                <i class="bi bi-sort-alpha-up sortAscending"></i>
+                <i class="bi bi-sort-alpha-down-alt sortDescending"></i>
+            </th>
+            <th>
+                First Name
+                <i class="bi bi-sort-alpha-up sortAscending"></i>
+                <i class="bi bi-sort-alpha-down-alt sortDescending"></i>
+            </th>
+            <th>
+                Middle Name
+                <i class="bi bi-sort-alpha-up sortAscending"></i>
+                <i class="bi bi-sort-alpha-down-alt sortDescending"></i>
+            </th>
+            <th>
+                Last Name
+                <i class="bi bi-sort-alpha-up sortAscending"></i>
+                <i class="bi bi-sort-alpha-down-alt sortDescending"></i>
+            </th>
+            <th>
+                Education
+                <i class="bi bi-sort-alpha-up sortAscending"></i>
+                <i class="bi bi-sort-alpha-down-alt sortDescending"></i>
+            </th>
+            <th>
+                Joining Date
+                <i class="bi bi-sort-alpha-up sortAscending"></i>
+                <i class="bi bi-sort-alpha-down-alt sortDescending"></i>
+            </th>
+            <th>
+                Current Address
+                <i class="bi bi-sort-alpha-up sortAscending"></i>
+                <i class="bi bi-sort-alpha-down-alt sortDescending"></i>
+            </th>
+            <th>
+                Current Company
+                <i class="bi bi-sort-alpha-up sortAscending"></i>
+                <i class="bi bi-sort-alpha-down-alt sortDescending"></i>
+            </th>
+            <th>
+                Date Of Birth
+                <i class="bi bi-sort-alpha-up sortAscending"></i>
+                <i class="bi bi-sort-alpha-down-alt sortDescending"></i>
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr id="filterBoxRow">
+            <td></td>
+            <td>
+                <input type="text" name="name" value="" class="textSearchBox" />
+                <span class="close_btn noDisplay"><i class="bi bi-x-circle-fill"></i></span>
+            </td>
+            <td>
+                <input type="text" name="name" value="" class="textSearchBox" />
+                <span class="close_btn noDisplay"><i class="bi bi-x-circle-fill"></i></span>
+            </td>
+            <td>
+                <input type="text" name="name" value="" class="textSearchBox" />
+                <span class="close_btn noDisplay"><i class="bi bi-x-circle-fill"></i></span>
+            </td>
+            <td>
+                <input type="text" name="name" value="" class="textSearchBox" />
+                <span class="close_btn noDisplay"><i class="bi bi-x-circle-fill"></i></span>
+            </td>
+            <td>
+                <input type="text" name="name" value="" class="textSearchBox" />
+                <span class="close_btn noDisplay"><i class="bi bi-x-circle-fill"></i></span>
+            </td>
+            <td>
+                <input type="text" name="name" value="" class="textSearchBox" />
+                <span class="close_btn noDisplay"><i class="bi bi-x-circle-fill"></i></span>
+
+            </td>
+            <td>
+                <input type="text" name="name" value="" class="textSearchBox" />
+                <span class="close_btn noDisplay"><i class="bi bi-x-circle-fill"></i></span>
+            </td>
+            <td>
+                <input type="text" name="name" value="" class="textSearchBox" />
+                <span class="close_btn noDisplay"><i class="bi bi-x-circle-fill"></i></span>
+            </td>
+            <td>
+                <input type="text" name="name" value="" class="textSearchBox" />
+                <span class="close_btn noDisplay"><i class="bi bi-x-circle-fill"></i></span>
+            </td>
+            <td>
+                <input type="text" name="name" value="" class="textSearchBox" />
+                <span class="close_btn noDisplay"><i class="bi bi-x-circle-fill"></i></span>
+            </td>
+        </tr>
+    </tbody>
+</table>

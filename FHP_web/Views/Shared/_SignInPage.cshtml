@@ -1,0 +1,50 @@
+﻿<style>
+    #invalidUser{
+        color:red;
+    }
+</style>
+<form method="post" id="loginForm">
+    <h4 id="invalidUser"></h4>
+    <label for="email">Email: </label> <br />
+    <input type="text" id="email" class="formInput" /> <br />
+    <label for="password">Password: </label> <br />
+    <input type="password" name="password" id="password" class="formInput" /> <br />
+    <button type="button" class="submitButton" id="signinBtn">Sign In</button>
+    <button type="button" class="submitButton" id="registerBtn" onclick="GetRegisterationForm()">Register</button>
+</form>
+
+
+ <script>
+     document.getElementById("signinBtn").addEventListener('click', function () {
+         let userId = document.getElementById('email').value;
+         let password = document.getElementById('password').value;
+         $.ajax({
+             url: "Employee/Validate/",
+             type: "POST",
+             headers: {
+                 'Accept': 'application/json',
+                 'Content-Type': 'application/json'
+             },
+             data: JSON.stringify({
+                 Id: userId,
+                 Password: password
+             }),
+             success: function (data) {
+                 if (data==null) {
+                    document.getElementById('invalidUser').innerText="Invalid username or password";
+                 } else {
+                     document.getElementById("modalContainer").style.display = 'none';
+                    document.querySelector('header nav').classList.remove('noVisibility');
+                    assignTraineeData(data.trainees);
+                    document.getElementById('signInBtn').innerText = data.loggedInUser.id;
+                    RenderRowData();
+                 }
+             },
+             error: function (error) {
+                 console.error("Error trying sign in:", error);
+             }
+         })
+     })
+    
+ </script>
+

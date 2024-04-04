@@ -1,0 +1,178 @@
+/* ------------------ nav bar styling*/
+.activeBtn {
+    color: green !important;
+    pointer-events: auto;
+}
+
+header{
+    display:flex;
+    justify-content:space-between;
+    margin:0 4rem;
+}
+
+.disableBtn {
+    color: red !important;
+    pointer-events: none;
+}
+/*  ------------------ global styling*/
+.line20px {
+    width: 200px;
+    height: 2px;
+    background: white;
+    display: inline-block;
+}
+
+.marginBottom7px {
+    margin-bottom: 7px;
+}
+
+.noDisplay {
+    display: none;
+}
+/*   ------------------ pop up sign in box*/
+#modalContainer {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1;
+}
+
+#registrationContainer {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.8);
+}
+
+/*  ------------------ sign in box styling*/
+#loginForm {
+    width: 300px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.formInput {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+.submitButton {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    margin-top: 10px;
+    border: none;
+    border-radius: 4px;
+    background-color: #007bff;
+    color: #fff;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+    .submitButton:hover {
+        background-color: #0056b3;
+    }
+
+/* ------------------ main screen heading*/
+#mainScreenScreen {
+    text-align: center;
+    font-family: cursive;
+    color: yellow;
+}
+/* ------------------ table styling*/
+#traineeDataTable {
+    width: 90vw;
+    margin: 4rem auto;
+}
+
+    #traineeDataTable thead tr th {
+        font-size: 0.7rem;
+        padding: 0.5rem 0;
+        text-align: center;
+    }
+
+    #traineeDataTable tbody tr {
+        height: 35px;
+    }
+
+table, th, td {
+    border: 1px solid black;
+}
+
+#traineeDataTable thead th {
+    background: #41C9E2;
+    color: white;
+    font-size: 0.7rem;
+}
+
+/* ------------------ filter box*/
+.textSearchBox {
+    background: rgba(255,255,255,0.2);
+    width: 75%;
+    border: none;
+    outline: none;
+}
+
+#filterBoxRow {
+    background: #ACE2E1;
+}
+
+/* ------------------ filter box clear btn*/
+.close_btn {
+    color: white;
+    cursor: pointer;
+}
+/* ------------------ trainee form*/
+
+
+#aboutUsBtn a{
+    text-decoration:none;
+    color:green;
+}
+
+#traineeDataTable i.sortDescending{
+    display:none;
+}
+#traineeDataTable i.sortAscending {
+    color:black;
+    font-size:1.2rem;
+    padding:0 5px;
+    cursor:pointer;
+}
+
+.noDisplay{
+    display:none !important;
+}
+.noVisibility{
+    visibility:hidden !important;
+}
+
+/* -------------- model close btn*/
+#modelCloseBtn{
+background:black;
+position:absolute;
+left:1173px;
+top:30px;
+padding:1.2rem;
+color:white;
+border-top-right-radius:4px;
+cursor:pointer;
+}
+
+.text-danger{
+    color:red;
+}

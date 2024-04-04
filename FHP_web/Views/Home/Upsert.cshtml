@@ -1,0 +1,135 @@
+﻿@model FHP_Res.Entity.Trainee
+@{
+    Layout = null;
+}
+<style>
+    #traineeFormContainer {
+        width: 60vw;
+        margin: 2rem auto;
+        box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+        border-top-left-radius: 10px;
+        border-top-right-radius: 10px;
+        background: white;
+    }
+
+        #traineeFormContainer #form-header {
+            padding: 10px 20px;
+            color: white;
+            background: #76ABAE;
+            border-top-left-radius: 10px;
+            border-top-right-radius: 10px;
+            text-align: center;
+        }
+
+        #traineeFormContainer form {
+            padding: 2rem 4rem;
+        }
+
+        #traineeFormContainer input, textarea {
+            width: 100%;
+            border: none;
+            border-bottom: 1px solid black;
+            outline: none;
+        }
+
+    #date {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    #btns {
+        display: flex;
+        justify-content: space-between;
+    }
+
+        #btns input {
+            width: 200px;
+        }
+</style>
+<div id="modelCloseBtn" onclick="ClosePopUpModel()">
+    X
+</div>
+<div id="traineeFormContainer">
+    <div id="form-header">
+        <h3>
+            <span class="line20px marginBottom7px"></span>
+            Enter the details
+            <span class="line20px marginBottom7px"></span>
+        </h3>
+    </div>
+    <form method="post" action="/Home/Upsert">
+        <div>
+            <label asp-for="SerialNumber"></label> <br />
+            @if (Model == null || Model.SerialNumber == 0)
+            {
+                <input asp-for="SerialNumber" disabled value=@TempData["currentElementId"] />
+            }
+            else
+            {
+                <input asp-for="SerialNumber" disabled />
+            }
+        </div>
+        <div>
+            <label asp-for="Prefix"></label>
+            <input asp-for="Prefix" />
+            <span asp-validation-for="Prefix" class="text-danger"></span>
+        </div>
+        <div>
+            <label asp-for="FirstName"></label> <br />
+            <input asp-for="FirstName" />
+            <span asp-validation-for="FirstName" class="text-danger"></span>
+        </div>
+        <div>
+            <label asp-for="MiddleName"></label> <br />
+            <input asp-for="MiddleName" />
+            <span asp-validation-for="MiddleName" class="text-danger"></span>
+        </div>
+        <div>
+            <label asp-for="LastName"></label> <br />
+            <input asp-for="LastName" />
+            <span asp-validation-for="LastName" class="text-danger"></span>
+        </div>
+        <div>
+            <label asp-for="EducationId"></label> <br />
+            <select asp-for="EducationId" asp-items="ViewBag.QualificationList" class="form-select pb-2">
+                <option disabled selected>-- select category -- </option>
+            </select>
+            <span asp-validation-for="EducationId" class="text-danger"></span>
+        </div>
+        <div id="date">
+            <div>
+                <label asp-for="JoiningDate"></label> <br />
+                <input asp-for="JoiningDate" />
+                <span asp-validation-for="JoiningDate" class="text-danger"></span>
+            </div>
+            <div>
+                <label asp-for="DateOfBirth"></label> <br />
+                <input asp-for="DateOfBirth" />
+                <span asp-validation-for="DateOfBirth" class="text-danger"></span>
+            </div>
+        </div>
+        <div>
+            <label asp-for="CurrentCompany"></label> <br />
+            <input asp-for="CurrentCompany" />
+            <span asp-validation-for="CurrentCompany" class="text-danger"></span>
+        </div>
+        <div>
+            <label asp-for="CurrentAddress"></label> <br />
+            <textarea asp-for="CurrentAddress"></textarea>
+            <span asp-validation-for="CurrentAddress" class="text-danger"></span>
+        </div>
+        <div id="btns">
+            <input type="submit" value="Add" />
+            <input type="submit" value="Update" />
+            <input type="reset" value="Clear" />
+        </div>
+    </form>
+</div>
+
+@* ---------------------- server side validation*@
+@section Scripts
+ {
+    @{
+        <partial name="_ValidationScriptsPartial" />
+    }
+}
